@@ -13,6 +13,18 @@ public class BasePage {
 	}
 	
 	/**
+	 * Privremena metoda za testiranje dok se loginPage ne uradi
+	 * @return
+	 */
+	public BasePage login(){
+		driver.findElement(By.id("login")).sendKeys("enis");
+		driver.findElement(By.id("password")).sendKeys("enis");
+		driver.findElement(By.id("domain")).sendKeys("connectdemo");
+		driver.findElement(By.id("user-login")).click();
+		return new BasePage(driver);
+	}
+	
+	/**
 	 * Insert in search field
 	 * @param search
 	 * @return
@@ -60,7 +72,7 @@ public class BasePage {
 		driver.findElement(By.className("md-menu")).click();
 		return this;
 	}
-	//click notification
+	
 	
 	/**
 	 * Open/close Notification
