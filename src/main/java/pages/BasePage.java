@@ -5,6 +5,8 @@ import org.openqa.selenium.By.ById;
 import org.openqa.selenium.WebDriver;
 import org.testng.Reporter;
 
+import properties.ReadConfigData;
+
 public class BasePage {
 	
 	WebDriver driver;
@@ -18,9 +20,10 @@ public class BasePage {
 	 * @return
 	 */
 	public BasePage login(){
-		driver.findElement(By.id("login")).sendKeys("enis");
-		driver.findElement(By.id("password")).sendKeys("enis");
-		driver.findElement(By.id("domain")).sendKeys("connectdemo");
+		ReadConfigData data= new ReadConfigData();
+		driver.findElement(By.id("login")).sendKeys(data.getUserName());
+		driver.findElement(By.id("password")).sendKeys(data.getPassword());
+		driver.findElement(By.id("domain")).sendKeys(data.getDomain());
 		driver.findElement(By.id("user-login")).click();
 		return new BasePage(driver);
 	}
