@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" total="1" passed="1">
+  <reporter-output>
+    <line>
+      <![CDATA[Click on Navigation Menu]]>
+    </line>
+  </reporter-output>
+  <suite name="Default suite" duration-ms="45012" started-at="2015-12-15T15:52:18Z" finished-at="2015-12-15T15:53:03Z">
+    <groups>
+    </groups>
+    <test name="Default test" duration-ms="45012" started-at="2015-12-15T15:52:18Z" finished-at="2015-12-15T15:53:03Z">
+      <class name="tests.BasePageTest">
+        <test-method status="PASS" signature="testSetUp()[pri:0, instance:tests.BasePageTest@5e025e70]" name="testSetUp" is-config="true" duration-ms="19741" started-at="2015-12-15T16:52:18Z" finished-at="2015-12-15T16:52:38Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testSetUp -->
+        <test-method status="PASS" signature="CheckNavigationTitle()[pri:0, instance:tests.BasePageTest@5e025e70]" name="CheckNavigationTitle" duration-ms="25176" started-at="2015-12-15T16:52:38Z" finished-at="2015-12-15T16:53:03Z">
+          <reporter-output>
+            <line>
+              <![CDATA[Click on Navigation Menu]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- CheckNavigationTitle -->
+        <test-method status="PASS" signature="testTearDown()[pri:0, instance:tests.BasePageTest@5e025e70]" name="testTearDown" is-config="true" duration-ms="39" started-at="2015-12-15T16:53:03Z" finished-at="2015-12-15T16:53:03Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testTearDown -->
+      </class> <!-- tests.BasePageTest -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
+</testng-results>
