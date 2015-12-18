@@ -5,6 +5,7 @@ import org.openqa.selenium.By.ById;
 import org.openqa.selenium.WebDriver;
 import org.testng.Reporter;
 
+import pages.ids.BasePageIds;
 import properties.ReadConfigData;
 
 public class BasePage {
@@ -15,10 +16,7 @@ public class BasePage {
 		this.driver = driver;
 	}
 	
-	/**
-	 * Privremena metoda za testiranje dok se loginPage ne uradi
-	 * @return
-	 */
+	
 	public BasePage login(){
 		ReadConfigData data= new ReadConfigData();
 		driver.findElement(By.id("login")).sendKeys(data.getUserName());
@@ -81,7 +79,7 @@ public class BasePage {
 	 */
 	public BasePage InsertInSearchField(String search){
 		Reporter.log("Insert in search: "+search,true);
-		driver.findElement(By.id("ct-single-search")).sendKeys(search);
+		driver.findElement(By.id(BasePageIds.IN_SEARCH_BOX_ID.getId())).sendKeys(search);
 		return this;	
 	}
 	
@@ -91,7 +89,7 @@ public class BasePage {
 	 */
 	public void ClickOnSearchButton(){
 		Reporter.log("Click on search button",true);
-		driver.findElement(By.className("search-icon md-search")).click();
+		driver.findElement(By.className(BasePageIds.BTN_SEARCH_BUTTON_CLASS.getId())).click();
 	}
 	
 	/**
@@ -109,7 +107,7 @@ public class BasePage {
 	 */
 	public String NavigationTitle(){
 		Reporter.log("Get Navigation title",true);
-		return driver.findElement(By.id("nav-location-text")).getText();
+		return driver.findElement(By.id(BasePageIds.TXT_NAV_TITLE_ID.getId())).getText();
 	}
 	
 	/**
@@ -118,7 +116,7 @@ public class BasePage {
 	 */
 	public BasePage ClickNotification(){
 		Reporter.log("Click on notification",true);
-		driver.findElement(By.id("ct-notifications-wrapper")).click();
+		driver.findElement(By.id(BasePageIds.BTN_NOTIFICATION_ID.getId())).click();
 		return this;
 	}
 	 
@@ -129,7 +127,7 @@ public class BasePage {
 	 */
 	public BasePage ClickUserAvatarMenu(){
 		Reporter.log("Click on Avatar",true);
-		driver.findElement(By.id("avatar-dropdown")).click();
+		driver.findElement(By.id(BasePageIds.BTN_AVATAR_ID.getId())).click();
 		return this;
 	}
 	
@@ -139,7 +137,7 @@ public class BasePage {
 	 */
 	public String GetAvatarName(){
 		Reporter.log("Get avatar name",true);
-		return driver.findElement(By.id("avatar-dropdown")).getText();
+		return driver.findElement(By.id(BasePageIds.TXT_AVATAR_NAME_ID.getId())).getText();
 	}
 	
 	
@@ -149,7 +147,7 @@ public class BasePage {
 	 */
 	public BasePage Logout(){
 		Reporter.log("Logout from beezfiy",true);
-		By path = new By.ById("logout");
+		By path = new By.ById(BasePageIds.BTN_LOGOUT_ID.getId());
 		ClickOnAvatarMenuElement(path);
 		return this;
 	}
@@ -160,7 +158,7 @@ public class BasePage {
 	 */
 	public BasePage ChangeToBosLanguage(){
 		Reporter.log("Change to Bosnian language",true);
-		By path = new By.ByXPath(".//*[@value='ba']");
+		By path = new By.ByXPath(BasePageIds.BTN_BOS_LANG_XPATH.getId());
 		ClickOnAvatarMenuElement(path);
 		return this;
 	}
@@ -172,7 +170,7 @@ public class BasePage {
 	 */
 	public BasePage ChangeToEngLanguage(){
 		Reporter.log("Change language to english", true);
-		By path = new By.ByXPath(".//*[@value='en']");
+		By path = new By.ByXPath(BasePageIds.BTN_ENG_LANG_XPATH.getId());
 		ClickOnAvatarMenuElement(path);
 		return this;
 	}
@@ -182,7 +180,7 @@ public class BasePage {
 	 */
 	public void ClickMyProfile(){
 		Reporter.log("Click on My profile button",true);
-		By path = new By.ByXPath(".//*[@ng-click='linkToMyProfile()']");
+		By path = new By.ByXPath(BasePageIds.LINK_MY_PROFILE_XPATH.getId());
 		ClickOnAvatarMenuElement(path);
 	}
 	
@@ -191,7 +189,7 @@ public class BasePage {
 	 */
 	public void ClickNewPwd(){
 		Reporter.log("Click on new password",true);
-		By path = new By.ById("reset-own-password");
+		By path = new By.ById(BasePageIds.BTN_RESET_PWD_ID.getId());
 		ClickOnAvatarMenuElement(path);
 	}
 	
@@ -201,7 +199,7 @@ public class BasePage {
 	 */
 	public void ClickManualWeb(){
 		Reporter.log("Click on User manual web",true);
-		By path = new ById("user-manual-web");
+		By path = new ById(BasePageIds.BTN_USER_WEB_ID.getId());
 		ClickOnAvatarMenuElement(path);
 	}
 	
@@ -210,7 +208,7 @@ public class BasePage {
 	 */
 	public void ClickManualMobile(){
 		Reporter.log("Click on User manual mobile",true);
-		By path = new ById("user-manual-mobile");
+		By path = new ById(BasePageIds.BTN_USER_MOB_ID.getId());
 		ClickOnAvatarMenuElement(path);
 	}
 
@@ -221,7 +219,7 @@ public class BasePage {
 	 */
 	public BasePage ClickOnNavigationMenu(){
 		Reporter.log("Click on Navigation Menu",true);
-		Click(By.className("md-menu"));
+		Click(By.className(BasePageIds.BTN_NAV_MENU_CLASS.getId()));
 		return this;
 	}
 	
@@ -230,7 +228,7 @@ public class BasePage {
 	 */
 	public void ClickOverview(){
 		Reporter.log("Click on overview",true);
-		By path = new ById("overview-li");
+		By path = new ById(BasePageIds.BTN_OVERVIEW_ID.getId());
 		ClickOnNavMenuElement(path);
 	}
 	
@@ -239,7 +237,7 @@ public class BasePage {
 	 */
 	public void ClickContacts(){
 		Reporter.log("Click on contacts",true);
-		By path = new ById("contact-li");
+		By path = new ById(BasePageIds.BTN_CONTACTS_ID.getId());
 		ClickOnNavMenuElement(path);
 	}
 	
@@ -248,7 +246,7 @@ public class BasePage {
 	 */
 	public void ClickDeals(){
 		Reporter.log("Click on deals",true);
-		By path= new ById("deal-li");
+		By path= new ById(BasePageIds.BTN_DEALS_ID.getId());
 		ClickOnNavMenuElement(path);
 	}
 	
@@ -257,7 +255,7 @@ public class BasePage {
 	 */
 	public void ClickCases(){
 		Reporter.log("Click on cases",true);
-		By path= new ById("project-li");
+		By path= new ById(BasePageIds.BTN_CASES_ID.getId());
 		ClickOnNavMenuElement(path);
 	}
 
@@ -266,7 +264,7 @@ public class BasePage {
 	 */
 	public void ClickTasks(){
 		Reporter.log("Click on tasks",true);
-		By path= new ById("task-li");
+		By path= new ById(BasePageIds.BTN_TASKS_ID.getId());
 		ClickOnNavMenuElement(path);
 	}
 	
@@ -275,7 +273,7 @@ public class BasePage {
 	 */
 	public void ClickTeams(){
 		Reporter.log("Click on teams",true);
-		By path= new ById("team-li");
+		By path= new ById(BasePageIds.BTN_TEAMS_ID.getId());
 		ClickOnNavMenuElement(path);
 	}
 	
@@ -285,7 +283,7 @@ public class BasePage {
 	 */
 	public void ClickSettings(){
 		Reporter.log("Click on settings",true);
-		By path= new ById("settings-li");
+		By path= new ById(BasePageIds.BTN_SETTINGS_ID.getId());
 		ClickOnNavMenuElement(path);
 	}
 	
@@ -294,7 +292,7 @@ public class BasePage {
 	 */
 	public void ClickAbout(){
 		Reporter.log("Click on about",true);
-		By path= new ById("about-li");
+		By path= new ById(BasePageIds.BTN_ABOUT_ID.getId());
 		ClickOnNavMenuElement(path);
 	}
 	
